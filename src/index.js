@@ -6,6 +6,8 @@ const detectArrayFunctionReplacements = require(__dirname + '/detectors/arrayFun
 const detectAugmentedArrayReplacements = require(__dirname + '/detectors/augmentedArrayReplacements');
 const detectFunctionToArrayReplacemets = require(__dirname + '/detectors/functionToArrayReplacements');
 const detectAugmentedArrayFunctionReplacements = require(__dirname + '/detectors/augmentedArrayFunctionReplacements');
+const evalWithLongString = require(__dirname + '/detectors/evalWithLongString');
+const obfuscatedRequire = require(__dirname + '/detectors/obfuscatedRequire');
 
 /**
  * @param {string} code
@@ -23,6 +25,8 @@ function detectObfuscation(code, stopAfterFirst = true) {
 		detectAugmentedArrayFunctionReplacements,
 		detectObfuscatorIo,
 		detectCaesarPlus,
+		evalWithLongString,
+		obfuscatedRequire,
 	];
 	try {
 		const tree = generateFlatAST(code);
