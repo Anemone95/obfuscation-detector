@@ -11,17 +11,17 @@ const obfuscationName = 'eval_with_long_string';
  * @return {string} The obfuscation name if detected; empty string otherwise.
  */
 function detectFunctionToArrayReplacemets(flatTree) {
-	let evalNode=flatTree.filter(n =>
+	let evalNode = flatTree.filter(n =>
 		n.type === 'CallExpression'
-		&& n.callee?.name==="eval"
-		&& n.arguments.length==1
-	)
+		&& n.callee?.name === 'eval'
+		&& n.arguments.length == 1
+	);
 	for (const astNode of evalNode) {
-		let arg=astNode.arguments[0];
-		if (arg.type==="Literal" && arg.value.length>1000){
-			return obfuscationName
-		} else if (arg.end-arg.start>1000) {
-			return obfuscationName
+		let arg = astNode.arguments[0];
+		if (arg.type === 'Literal' && arg.value.length > 1000) {
+			return obfuscationName;
+		} else if (arg.end - arg.start > 1000) {
+			return obfuscationName;
 		}
 	}
 	return '';
@@ -29,4 +29,5 @@ function detectFunctionToArrayReplacemets(flatTree) {
 
 try {
 	module.exports = detectFunctionToArrayReplacemets;
-} catch {}
+} catch {
+}
