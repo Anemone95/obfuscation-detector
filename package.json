@@ -1,5 +1,5 @@
 {
-  "name": "obfuscation-detector",
+  "name": "obfuscation-detector2",
   "version": "1.0.5",
   "description": "Javascript obfuscation detector",
   "main": "src/index.js",
@@ -21,7 +21,7 @@
     "detection",
     "detector"
   ],
-  "author": "ben.baryo@perimeterx.com",
+  "author": "x565178035@126.com ",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/PerimeterX/obfuscation-detector/issues"
